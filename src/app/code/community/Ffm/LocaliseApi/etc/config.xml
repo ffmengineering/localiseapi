@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Ffm_LocaliseApi extension
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the MIT License
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/mit-license.php
+*
+* @category       Ffm
+* @package        Ffm_LocaliseApi
+* @copyright      Copyright (c) 2015
+* @license        http://opensource.org/licenses/mit-license.php MIT License
+*/
+-->
+<config>
+    <modules>
+        <Ffm_LocaliseApi>
+            <version>1.0.2</version>
+        </Ffm_LocaliseApi>
+    </modules>
+    <global>
+        <blocks>
+            <ffm_localiseapi>
+                <class>Ffm_LocaliseApi_Block</class>
+            </ffm_localiseapi>
+        </blocks>
+        <helpers>
+            <ffm_localiseapi>
+                <class>Ffm_LocaliseApi_Helper</class>
+            </ffm_localiseapi>
+        </helpers>
+        <models>
+            <ffm_localiseapi>
+                <class>Ffm_LocaliseApi_Model</class>
+                <resourceModel>ffm_localiseapi_resource</resourceModel>
+            </ffm_localiseapi>
+            <ffm_localiseapi_resource>
+                <class>Ffm_LocaliseApi_Model_Resource</class>
+                <entities>
+                    <queue>
+                        <table>ffm_localiseapi_queue</table>
+                    </queue>
+                </entities>
+            </ffm_localiseapi_resource>
+        </models>
+        <resources>
+            <ffm_localiseapi_setup>
+                <setup>
+                    <module>Ffm_LocaliseApi</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </ffm_localiseapi_setup>
+            <ffm_localiseapi_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </ffm_localiseapi_write>
+            <ffm_localiseapi_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </ffm_localiseapi_read>
+        </resources>
+    </global>
+    <crontab>
+        <jobs>
+            <ffm_localiseapi_executeTriggers>
+                <schedule><cron_expr>10 */1 * * *</cron_expr></schedule>
+                <run><model>ffm_localiseapi/cron::executeTriggers</model></run>
+            </ffm_localiseapi_executeTriggers>
+            <ffm_localiseapi_sendQueue>
+                <schedule><cron_expr>0 */1 * * *</cron_expr></schedule>
+                <run><model>ffm_localiseapi/cron::sendQueue</model></run>
+            </ffm_localiseapi_sendQueue>
+        </jobs>
+    </crontab>
+    <adminhtml>
+        <events>
+            <adminhtml_cms_page_edit_tab_main_prepare_form>
+                <observers>
+                    <ffm_localiseapi_adminhtml_cms_page_edit_tab_main_prepare_form>
+                        <type>singleton</type>
+                        <class>Ffm_LocaliseApi_Model_Observer</class>
+                        <method>adminhtmlCmsPageEditTabMainPrepareForm</method>
+                    </ffm_localiseapi_adminhtml_cms_page_edit_tab_main_prepare_form>
+                </observers>
+            </adminhtml_cms_page_edit_tab_main_prepare_form>
+
+            <cms_page_save_commit_after>
+                <observers>
+                    <ffm_localiseapi_cms_page_save_commit_after>
+                        <type>singleton</type>
+                        <class>Ffm_LocaliseApi_Model_Observer</class>
+                        <method>cmsPageSaveCommitAfter</method>
+                    </ffm_localiseapi_cms_page_save_commit_after>
+                </observers>
+            </cms_page_save_commit_after>
+
+            <core_abstract_save_commit_after>
+                <observers>
+                    <ffm_localiseapi_cms_block_save_commit_after>
+                        <type>singleton</type>
+                        <class>Ffm_LocaliseApi_Model_Observer</class>
+                        <method>cmsBlockSaveCommitAfter</method>
+                    </ffm_localiseapi_cms_block_save_commit_after>
+                </observers>
+            </core_abstract_save_commit_after>
+
+            <catalog_product_save_commit_after>
+                <observers>
+                    <ffm_localiseapi_catalog_product_save_commit_after>
+                        <type>singleton</type>
+                        <class>Ffm_LocaliseApi_Model_Observer</class>
+                        <method>catalogProductSaveCommitAfter</method>
+                    </ffm_localiseapi_catalog_product_save_commit_after>
+                </observers>
+            </catalog_product_save_commit_after>
+
+            <admin_system_config_changed_section_general>
+                <observers>
+                    <ffm_localiseapi_admin_system_config_changed_section_general>
+                        <type>singleton</type>
+                        <class>Ffm_LocaliseApi_Model_Observer</class>
+                        <method>adminSystemConfigChangedSectionGeneral</method>
+                    </ffm_localiseapi_admin_system_config_changed_section_general>
+                </observers>
+            </admin_system_config_changed_section_general>
+        </events>
+    </adminhtml>
+    <localise_connectors>
+        <products>
+            <importer>Ffm_LocaliseApi_Model_Connectors_Importer_Products</importer>
+            <exporter>Ffm_LocaliseApi_Model_Connectors_Exporter_Products</exporter>
+        </products>
+        <pages>
+            <importer>Ffm_LocaliseApi_Model_Connectors_Importer_Pages</importer>
+            <exporter>Ffm_LocaliseApi_Model_Connectors_Exporter_Pages</exporter>
+        </pages>
+        <blocks>
+            <importer>Ffm_LocaliseApi_Model_Connectors_Importer_Blocks</importer>
+            <exporter>Ffm_LocaliseApi_Model_Connectors_Exporter_Blocks</exporter>
+        </blocks>
+        <translatecsv>
+            <importer>Ffm_LocaliseApi_Model_Connectors_Importer_Translatecsv</importer>
+            <exporter>Ffm_LocaliseApi_Model_Connectors_Exporter_Translatecsv</exporter>
+        </translatecsv>
+    </localise_connectors>
+</config>

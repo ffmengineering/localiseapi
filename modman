@@ -1,0 +1,4 @@
+src/app/code/community/Ffm/LocaliseApi               app/code/community/Ffm/LocaliseApi
+src/app/design/adminhtml/default/default/template/ffm_localiseapi     app/design/adminhtml/default/default/template/ffm_localiseapi
+src/app/etc/modules/Ffm_LocaliseApi.xml              app/etc/modules/Ffm_LocaliseApi.xml
+src/lib/Localise                                     lib/Localise

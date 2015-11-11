@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Ffm_LocaliseApi extension
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the MIT License
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/mit-license.php
+*
+* @category       Ffm
+* @package        Ffm_LocaliseApi
+* @copyright      Copyright (c) 2015
+* @license        http://opensource.org/licenses/mit-license.php MIT License
+*/
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <ffm_localiseapi>
+                        <children>
+                            <sync translate="title" module="ffm_localiseapi">
+                                <title>Localise.biz API mass sync</title>
+                            </sync>
+                        </children>
+                    </ffm_localiseapi>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

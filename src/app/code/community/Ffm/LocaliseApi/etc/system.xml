@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Ffm_LocaliseApi extension
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the MIT License
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/mit-license.php
+*
+* @category       Ffm
+* @package        Ffm_LocaliseApi
+* @copyright      Copyright (c) 2015
+* @license        http://opensource.org/licenses/mit-license.php MIT License
+*/
+-->
+<config>
+    <sections>
+        <general>
+            <groups>
+                <localiseapi module="ffm_localiseapi" translate="label comment">
+                    <label>Localise.biz API</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>35</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment><![CDATA[This is a comment]]></comment>
+                    <fields>
+                        <apikeys translate="label">
+                            <label>Project API keys</label>
+                            <frontend_model>ffm_localiseapi/adminhtml_configuration_apikeys</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>0</show_in_store>
+                            <show_in_store>0</show_in_store>
+                        </apikeys>
+                        <productattributes translate="label">
+                            <label>Product attributes to syncronise</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>ffm_localiseapi/system_config_source_productattributes</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </productattributes>
+                        <importtriggers translate="label">
+                            <label>Trigger imports</label>
+                            <frontend_model>ffm_localiseapi/adminhtml_configuration_triggers_import</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
+                        </importtriggers>
+                        <exporttriggers translate="label">
+                            <label>Trigger export</label>
+                            <frontend_model>ffm_localiseapi/adminhtml_configuration_triggers_export</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>0</show_in_store>
+                            <show_in_store>0</show_in_store>
+                        </exporttriggers>
+                    </fields>
+                </localiseapi>
+            </groups>
+        </general>
+    </sections>
+</config>

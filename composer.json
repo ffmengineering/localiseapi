@@ -1,0 +1,16 @@
+{
+    "name": "Ffm/LocaliseApi",
+    "license": "OSL-3.0",
+    "type": "magento-module",
+    "description": "Synchronize translations with the localise.biz API",
+    "homepage": "http://www.fitforme.nl",
+    "suggest": {
+        "aoepeople/composer-installers": "*"
+    },
+    "authors":[
+        {
+            "name":"Sander Mangel",
+            "email":"s.mangel@fitforme.nl"
+        }
+    ]
+}
