@@ -4,7 +4,7 @@ Synchronize translations with the localise.biz API
 
 Facts
 -----
-- version: 1.0.0
+- version: 1.0.2
 - extension key: Ffm_LocaliseApi
 
 Description
