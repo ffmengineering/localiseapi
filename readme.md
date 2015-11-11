@@ -16,6 +16,14 @@ Requirements
 - PHP >= 5.5
 - https://localise.biz/ account
 
+Instalation
+------------
+Sign up for a Localise account. Per entity (product, translate string, page, block) a project should be created.
+
+Now, in the Magento backend you can add the API keys you can find under the `developer` section in Localise
+
+![Magento Settings](http://i.imgur.com/z5icQTi.png "Magento Settings")
+
 Compatibility
 -------------
 - Magento >= 1.9
@@ -27,8 +35,7 @@ If you have any issues with this extension, open an issue via [FitForMe IT Suppo
 Developer
 ---------
 Sander Mangel
-[http://www.sandermangel.nl](http://www.sandermangel.nl)
-[@sandermangel](https://twitter.com/sandermangel)
+[http://www.sandermangel.nl](http://www.sandermangel.nl) - [@sandermangel](https://twitter.com/sandermangel)
 
 Licence
 -------
@@ -37,3 +44,8 @@ Licence
 Copyright
 ---------
 (c) 2015 FitForMe B.V.
+[ MIT License](http://opensource.org/licenses/mit-license.php)
+
+Contributing
+---------
+Contributions are always welcome. Please make pull requests!
