@@ -9,13 +9,12 @@ Facts
 
 Description
 -----------
-This paragraph describes what the extension does.
+This modules syncs the global scope contents of products, blocks, pages and translate CSVs to Localise where it can be translated per language and imported back into Magento on store level
 
 Requirements
 ------------
-- PHP >= 5.2.0
-- Mage_Core
-- ...
+- PHP >= 5.5
+- https://localise.biz/ account
 
 Compatibility
 -------------
@@ -23,7 +22,7 @@ Compatibility
 
 Support
 -------
-If you have any issues with this extension, open an issue via [FitForMe IT Support](mailto:supper@fitforme.nl).
+If you have any issues with this extension, open an issue via [FitForMe IT Support](mailto:support@fitforme.nl).
 
 Developer
 ---------
