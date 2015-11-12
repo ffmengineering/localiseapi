@@ -28,10 +28,6 @@ Compatibility
 -------------
 - Magento >= 1.9
 
-Support
--------
-If you have any issues with this extension, open an issue via [FitForMe IT Support](mailto:support@fitforme.nl).
-
 Developer
 ---------
 Sander Mangel
