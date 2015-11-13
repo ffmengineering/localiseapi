@@ -34,6 +34,8 @@ class Ffm_LocaliseApi_Model_Connectors_Exporter_Products extends Ffm_LocaliseApi
             ->addAttributeToFilter('updated_at', array('gteq' => $dateFrom))
             ->addAttributeToSelect($this->_attributeCodes);
 
+		$collection->getSelect()->group('i8l_identifier'); 
+
         $this->_queue($collection, $locale);
     }
 }
