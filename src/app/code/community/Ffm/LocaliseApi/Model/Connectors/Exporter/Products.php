@@ -28,11 +28,11 @@ class Ffm_LocaliseApi_Model_Connectors_Exporter_Products extends Ffm_LocaliseApi
     public function process($locale, $dateFrom)
     {
         $this->_attributeCodes = explode(',', Mage::getStoreConfig('general/localiseapi/productattributes', 0));
+        $this->_attributeCodes[] = $this->_identifierCode;
 
         $collection = Mage::getModel('catalog/product')->getCollection()
             ->addAttributeToFilter('updated_at', array('gteq' => $dateFrom))
-            ->addAttributeToSelect($this->_attributeCodes)
-            ->addAttributeToSelect('i8l_identifier');
+            ->addAttributeToSelect($this->_attributeCodes);
 
         $this->_queue($collection, $locale);
     }
