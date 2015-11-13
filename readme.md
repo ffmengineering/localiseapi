@@ -1,10 +1,12 @@
+*I'm a readme so PLEASE READ ME. Completely...*
+
 Ffm LocaliseApi Extension
 =====================
 Synchronize translations with the localise.biz API
 
 Facts
 -----
-- version: 1.0.0
+- version: 1.0.2
 - extension key: Ffm_LocaliseApi
 
 Description
@@ -26,11 +28,17 @@ Now, in the Magento backend you can add the API keys you can find under the `dev
 
 Compatibility
 -------------
-- Magento >= 1.9
+tested on
+- Magento >= CE 1.9
+- Magento >= EE 1.14.2
 
-Support
--------
-If you have any issues with this extension, open an issue via [FitForMe IT Support](mailto:support@fitforme.nl).
+Roadmap and important notes
+-------------
+[!!!] This module was built on a system that implements CleverCMS for the cms pages. It was tested also on a shop without but for v1.0.2 please double check if the identifier is added to the form and the import and export connectors work without errors. Next version this will be fixed.
+
+1. support for categories will be added
+2. support for dropdown attribute options will be added
+3. small tutorial for adding your custom module connector will be added (or just look at what this `config.xml` does)
 
 Developer
 ---------
