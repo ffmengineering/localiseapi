@@ -47,12 +47,11 @@ Sander Mangel
 
 Licence
 -------
-[ MIT License](http://opensource.org/licenses/mit-license.php)
+[The Open Software License 3.0 (OSL-3.0)](http://opensource.org/licenses/OSL-3.0)
 
 Copyright
 ---------
 (c) 2015 FitForMe B.V.
-[ MIT License](http://opensource.org/licenses/mit-license.php)
 
 Contributing
 ---------
