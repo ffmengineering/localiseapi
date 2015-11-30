@@ -104,7 +104,7 @@ class Ffm_LocaliseApi_Model_Observer
         }
 
         // compare original data to new data
-        $result = array_diff_assoc($origData,$newData);
+        $result = array_diff_assoc($newData,$origData);
 
         $storeId = $_object->getData('store_id');
         $locale = Mage::getStoreConfig('general/locale/code', $storeId);
@@ -128,19 +128,19 @@ class Ffm_LocaliseApi_Model_Observer
 
         // compare original data to new data
         $result = array_diff_assoc([
-            'title' => $_object->getOrigData('title'),
-            'meta_keywords' => $_object->getOrigData('meta_keywords'),
-            'meta_description' => $_object->getOrigData('meta_description'),
-            'identifier' => $_object->getOrigData('identifier'),
-            'content_heading' => $_object->getOrigData('content_heading'),
-            'content' => $_object->getOrigData('content'),
-        ],[
             'title' => $_object->getData('title'),
             'meta_keywords' => $_object->getData('meta_keywords'),
             'meta_description' => $_object->getData('meta_description'),
             'identifier' => $_object->getData('identifier'),
             'content_heading' => $_object->getData('content_heading'),
             'content' => $_object->getData('content'),
+        ],[
+            'title' => $_object->getOrigData('title'),
+            'meta_keywords' => $_object->getOrigData('meta_keywords'),
+            'meta_description' => $_object->getOrigData('meta_description'),
+            'identifier' => $_object->getOrigData('identifier'),
+            'content_heading' => $_object->getOrigData('content_heading'),
+            'content' => $_object->getOrigData('content'),
         ]);
 
         $locale = Mage::getStoreConfig('general/locale/code', $storeId);
@@ -166,13 +166,13 @@ class Ffm_LocaliseApi_Model_Observer
 
         // compare original data to new data
         $result = array_diff_assoc([
-            'title' => $_object->getOrigData('title'),
-            'identifier' => $_object->getOrigData('identifier'),
-            'content' => $_object->getOrigData('content'),
-        ],[
             'title' => $_object->getData('title'),
             'identifier' => $_object->getData('identifier'),
             'content' => $_object->getData('content'),
+        ],[
+            'title' => $_object->getOrigData('title'),
+            'identifier' => $_object->getOrigData('identifier'),
+            'content' => $_object->getOrigData('content'),
         ]);
 
         $locale = Mage::getStoreConfig('general/locale/code', 0);
