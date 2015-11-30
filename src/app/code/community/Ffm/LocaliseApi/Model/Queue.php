@@ -67,4 +67,33 @@ class Ffm_LocaliseApi_Model_Queue extends Mage_Core_Model_Abstract
         $this->setUpdatedAt($now);
         return $this;
     }
+
+    public function save()
+    {
+        if ($this->isDeleted()) {
+            return $this->delete();
+        }
+        if (!$this->_hasModelChanged()) {
+            return $this;
+        }
+
+        try {
+            $this->_beforeSave();
+
+            $resource = Mage::getSingleton('core/resource');
+            $write = $resource->getConnection('core_write');
+
+            $write->query("
+                INSERT INTO `{$resource->getTableName('ffm_localiseapi/queue')}` (`assetpool`,`identifier`,`string`,`locale`,`created_at`,`updated_at`) VALUES
+                ('{$this->getAssetpool()}','{$this->getIdentifier()}','{$this->getString()}','{$this->getLocale()}','{$this->getCreatedAt()}','{$this->getUpdatedAt()}')
+                ON DUPLICATE KEY UPDATE `string`='{$this->getString()}', `updated_at`='{$this->getUpdatedAt()}';
+            ");
+
+            $this->_afterSave();
+        } catch (Exception $e) {
+            throw $e;
+        }
+
+        return $this;
+    }
 }
