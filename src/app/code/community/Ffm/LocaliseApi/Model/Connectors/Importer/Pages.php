@@ -31,7 +31,7 @@ class Ffm_LocaliseApi_Model_Connectors_Importer_Pages extends Ffm_LocaliseApi_Mo
 
         $pageData = [];
         foreach ($data as $identifier => $content) {
-            list($pageId, $type) = explode('::', $identifier);
+            list($pageId, $type) = explode('..', $identifier);
             if (!isset($pageData[$pageId])) {
                 $pageData[$pageId] = [];
             }

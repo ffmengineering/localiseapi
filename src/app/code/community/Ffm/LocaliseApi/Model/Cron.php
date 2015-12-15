@@ -21,7 +21,7 @@
  * @package     Ffm_LocaliseApi
  * @author      Sander Mangel <s.mangel@fitforme.nl>
  */
-use Localise;
+require_once Mage::getBaseDir('lib') . DS . 'Localise' . DS . 'Export.php';
 
 class Ffm_LocaliseApi_Model_Cron
 {

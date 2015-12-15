@@ -22,7 +22,7 @@
  * @author      Sander Mangel <s.mangel@fitforme.nl>
  */
 
-require Mage::getBaseDir('lib') . DS . 'Localise' . DS . 'Export.php';
+require_once Mage::getBaseDir('lib') . DS . 'Localise' . DS . 'Export.php';
 
 abstract class Ffm_LocaliseApi_Model_Connectors_Exporter_Abstract
 {

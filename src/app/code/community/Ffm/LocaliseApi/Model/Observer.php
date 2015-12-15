@@ -196,7 +196,7 @@ class Ffm_LocaliseApi_Model_Observer
         foreach ($data as $key => $string) {
             $_model->setData([
                 'assetpool' => $pool,
-                'identifier' => "{$identifier}::{$key}",
+                'identifier' => "{$identifier}..{$key}",
                 'string' => $string,
                 'locale' => $locale,
             ]);

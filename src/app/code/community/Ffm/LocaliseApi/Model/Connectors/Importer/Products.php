@@ -35,7 +35,7 @@ class Ffm_LocaliseApi_Model_Connectors_Importer_Products extends Ffm_LocaliseApi
 
         $_product = Mage::getModel('catalog/product');
         foreach ($data as $identifier => $value) {
-            list($i8l, $attributeCode) = explode('::', $identifier);
+            list($i8l, $attributeCode) = explode('..', $identifier);
             // localise strips _ & - amongst others
             $i8l = preg_replace('/([^a-z0-9])/i', '-', $i8l);
             $attributeCode = preg_replace('/([^a-z0-9])/i', '_', $attributeCode);

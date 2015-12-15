@@ -27,18 +27,20 @@ class Ffm_LocaliseApi_Model_Connectors_Importer_Blocks extends Ffm_LocaliseApi_M
 
     public function process($storeId, $locale)
     {
+        if ($storeId!=2) return;
         $data = $this->_getTranslatePackage($locale);
         $blocks = [];
 
         // translate localise data into array
-        foreach ($data as $identifier => $value) {
-            list($i8l, $attributeCode) = explode('::', $identifier);
-            // localise strips _ & - amongst others
-            $i8l = preg_replace('/([^a-z0-9])/i', '-', $i8l);
-            $attributeCode = preg_replace('/([^a-z0-9])/i', '_', $attributeCode);
+        foreach ($data as $identifier => $attributes) {
+            foreach (reset($attributes) as $code => $value) {
+                $code = preg_replace('/([^a-z0-9])/i', '_', $code);
 
-            if (!isset($blocks[$i8l])) $blocks[$i8l] = [];
-            $blocks[$i8l][$attributeCode] = $value;
+                if (!isset($blocks[$identifier])) $blocks[$identifier] = [];
+
+                $blocks[$identifier][$code] = $value;
+
+            }
         }
 
         // fetch the already existing blocks
@@ -48,7 +50,7 @@ class Ffm_LocaliseApi_Model_Connectors_Importer_Blocks extends Ffm_LocaliseApi_M
 
         $existing = [];
         foreach ($collection as $_item) {
-            $existing[$_item->getIdentifier()] = $_item->getId();
+            $existing[$_item->getData('identifier')] = $_item->getId();
         }
 
         // iterate through the retrieved api data

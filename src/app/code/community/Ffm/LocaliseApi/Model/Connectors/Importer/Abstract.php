@@ -22,7 +22,7 @@
  * @author      Sander Mangel <s.mangel@fitforme.nl>
  */
 
-require Mage::getBaseDir('lib') . DS . 'Localise' . DS . 'Import.php';
+require_once Mage::getBaseDir('lib') . DS . 'Localise' . DS . 'Import.php';
 
 use Localise;
 
@@ -36,7 +36,7 @@ abstract class Ffm_LocaliseApi_Model_Connectors_Importer_Abstract
 
         try {
             $result = $import->get($locale, $apiKey, [
-                'index' => 'name',
+                'index' => 'id',
                 'status' => 'translated',
             ]);
         } catch(Exception $e) {

@@ -29,6 +29,7 @@ class Ffm_LocaliseApi_Model_Connectors_Exporter_Blocks extends Ffm_LocaliseApi_M
         'identifier',
         'content',
     ];
+
     protected $_identifierCode = 'identifier';
 
     public function process($locale, $dateFrom)
