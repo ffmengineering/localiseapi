@@ -22,6 +22,7 @@
  * @author      Sander Mangel <s.mangel@fitforme.nl>
  */
 
+require Mage::getBaseDir('lib') . DS . 'Localise' . DS . 'Import.php';
 
 use Localise;
 

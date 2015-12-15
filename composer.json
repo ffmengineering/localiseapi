@@ -1,7 +1,7 @@
 {
     "name": "Ffm/LocaliseApi",
     "license": "OSL-3.0",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "type": "magento-module",
     "description": "Synchronize translations with the localise.biz API",
     "homepage": "http://www.fitforme.nl",
