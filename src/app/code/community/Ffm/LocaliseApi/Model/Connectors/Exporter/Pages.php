@@ -38,7 +38,7 @@ class Ffm_LocaliseApi_Model_Connectors_Exporter_Pages extends Ffm_LocaliseApi_Mo
     {
         $collection = Mage::getModel('cms/page')->getCollection()
             ->addStoreFilter(0)
-            ->addFieldToFilter('updated_at', array('gteq' => $dateFrom))
+            ->addFieldToFilter('update_time', array('gteq' => $dateFrom))
             ->addFieldToSelect($this->_attributeCodes);
 
         $this->_queue($collection, $locale);
