@@ -95,7 +95,7 @@ class Ffm_LocaliseApi_Model_Cron
                     var_dump($result);
                 }
 
-                $config->saveConfig('general/localiseapi/imports/meta/' . $importer['code'] . '/'.$metaData['store'], serialize([
+                $config->saveConfig('general/localiseapi/imports/meta/' . $importer['code'] . '/store_'.$metaData['store'], serialize([
                     'active' => 0,
                     'due' => null,
                     'processed' => date('Y-m-d H:i:s', strtotime(now())),

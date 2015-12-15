@@ -99,7 +99,7 @@ class Ffm_LocaliseApi_Block_Adminhtml_Configuration_Importtriggers extends Mage_
 
             $storeId = (strlen($code = Mage::getSingleton('adminhtml/config_data')->getStore())) ? "/{$code}" : "" ;
 
-            $metaArray = Mage::getStoreConfig('general/localiseapi/imports/meta/' . $importer['code'] . $storeId); // can be array on global scope
+            $metaArray = Mage::getStoreConfig('general/localiseapi/imports/meta/' . $importer['code'] . '/store_' . $storeId); // can be array on global scope
             $metaData = (array)unserialize((is_array($metaArray)) ? reset($metaArray) : $metaArray );
             $metaData = array_merge([ // always make sure there are defaults
                 'active' => 0,

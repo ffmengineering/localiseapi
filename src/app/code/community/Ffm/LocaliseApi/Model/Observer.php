@@ -224,7 +224,7 @@ class Ffm_LocaliseApi_Model_Observer
                 $assetName = $groupName['active'];
 
                 foreach ($storeIds as $storeId) {
-                    $config->saveConfig('general/localiseapi/imports/meta/' . $assetName . '/'.$storeId, serialize([
+                    $config->saveConfig('general/localiseapi/imports/meta/' . $assetName . '/store_'.$storeId, serialize([
                         'active' => 1,
                         'due' => date('Y-m-d H:i:s', strtotime('+5 minutes')),
                         'processed' => NULL,
