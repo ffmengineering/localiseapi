@@ -91,8 +91,8 @@ class Ffm_LocaliseApi_Model_Cron
                 try {
                     $result = $model->process($metaData['store'], $locale);
                 } catch(Exception $e) {
+                    Mage::logException($e);
                     $result = "{$e->getMessage()}";
-                    var_dump($result);
                 }
 
                 $config->saveConfig('general/localiseapi/imports/meta/' . $importer['code'] . '/store_'.$metaData['store'], serialize([
@@ -100,7 +100,7 @@ class Ffm_LocaliseApi_Model_Cron
                     'due' => null,
                     'processed' => date('Y-m-d H:i:s', strtotime(now())),
                     'store' => $storeId,
-                    'result' => (is_bool($result)) ? 'OK' : $result,
+                    'result' => (is_bool($result)) ? 'OK' : substr($result, 0, 200),
                 ]), 'default', 0);
             }
         }
@@ -125,8 +125,9 @@ class Ffm_LocaliseApi_Model_Cron
                 $result = "{$e->getMessage()}";
                 if (stristr($result, 'duplicate entry')) {
                     $result = true;
+                } else {
+                    Mage::logException($e);
                 }
-                //var_dump($result);
             }
 
             $config->saveConfig('general/localiseapi/exports/meta/' . $exporter['code'], serialize([
@@ -135,7 +136,7 @@ class Ffm_LocaliseApi_Model_Cron
                 'from' => $metaData['from'],
                 'processed' => date('Y-m-d H:i:s', strtotime(now())),
                 'store' => 0,
-                'result' => (is_bool($result)) ? 'OK' : $result,
+                'result' => (is_bool($result)) ? 'OK' : substr($result, 0, 200),
             ]), 'default', 0);
         }
     }
