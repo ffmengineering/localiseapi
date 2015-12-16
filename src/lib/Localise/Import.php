@@ -45,6 +45,7 @@ class Import
         if ($ch = curl_init()) {
             curl_setopt($ch,CURLOPT_URL, $apiUrl);
             curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch,CURLOPT_HEADER, true);
             //curl_setopt($ch,CURLOPT_USERPWD, "$apiKey:");
 
             $result = curl_exec($ch);
@@ -54,7 +55,7 @@ class Import
             curl_close($ch);
         }
 
-        if ($result['status'] != '200') { // only 200 indicates succesfull data retrieval
+        if (isset($result['error']) && $result['error'] != '200') { // only 200 indicates succesfull data retrieval
             $error = $result['error'];
         }
 

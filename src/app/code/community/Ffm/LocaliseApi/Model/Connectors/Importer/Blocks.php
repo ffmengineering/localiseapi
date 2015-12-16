@@ -54,6 +54,9 @@ class Ffm_LocaliseApi_Model_Connectors_Importer_Blocks extends Ffm_LocaliseApi_M
 
         // iterate through the retrieved api data
         foreach ($blocks as $identifier => $data) {
+            if (is_null($data['title']) || is_null($data['content'])) // only allow fully translated entities
+                continue;
+
             $_block = Mage::getModel('cms/block')
                 ->setStores(array($storeId));
 

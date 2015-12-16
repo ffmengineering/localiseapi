@@ -40,7 +40,7 @@ abstract class Ffm_LocaliseApi_Model_Connectors_Importer_Abstract
                 'status' => 'translated',
             ]);
         } catch(Exception $e) {
-            Mage::log("getTranslatePackage API error: {$e->getMessage()}", Zend_Log::INFO, 'translation.log', true);
+            Mage::log("getTranslatePackage API error ({$this->_assetName},{$locale}}): {$e->getMessage()}", Zend_Log::INFO, 'translation.log', true);
             throw new Exception($e);
             return null;
         }
