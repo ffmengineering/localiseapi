@@ -217,7 +217,7 @@ class Ffm_LocaliseApi_Model_Observer
             $storeIds = $collection->getAllIds();
         }
 
-        if (count($groups['localiseapi']['fields']['importtriggers']['value'])) {
+        if (isset($groups['localiseapi']['fields']['importtriggers']) && count($groups['localiseapi']['fields']['importtriggers']['value'])) {
             foreach ($groups['localiseapi']['fields']['importtriggers']['value'] as $id => $groupName) {
                 if (!isset($groupName['active'])) continue;
 
@@ -235,7 +235,7 @@ class Ffm_LocaliseApi_Model_Observer
             }
         }
 
-        if (count($groups['localiseapi']['fields']['exporttriggers']['value'])) {
+        if (isset($groups['localiseapi']['fields']['exporttriggers']) && count($groups['localiseapi']['fields']['exporttriggers']['value'])) {
             foreach ($groups['localiseapi']['fields']['exporttriggers']['value'] as $id => $groupName) {
                 if (!isset($groupName['active'])) continue;
                 $assetName = $groupName['active'];
