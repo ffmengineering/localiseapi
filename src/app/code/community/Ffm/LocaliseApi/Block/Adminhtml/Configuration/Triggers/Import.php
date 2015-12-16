@@ -71,9 +71,9 @@ class Ffm_LocaliseApi_Block_Adminhtml_Configuration_Triggers_Import extends Ffm_
 
             $format = Mage::app()->getLocale()->getDateTimeFormat(Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM);
 
-            $storeId = (strlen($code = Mage::getSingleton('adminhtml/config_data')->getStore())) ? "/{$code}" : "" ;
+            $storeId = (strlen($code = Mage::getSingleton('adminhtml/config_data')->getStore())) ? "/store_{$code}" : "" ;
 
-            $metaArray = Mage::getStoreConfig('general/localiseapi/imports/meta/' . $importer['code'] . '/store_' . $storeId); // can be array on global scope
+            $metaArray = Mage::getStoreConfig('general/localiseapi/imports/meta/' . $importer['code'] . $storeId); // can be array on global scope
             $metaData = (array)unserialize((is_array($metaArray)) ? reset($metaArray) : $metaArray );
             $metaData = array_merge([ // always make sure there are defaults
                 'active' => 0,

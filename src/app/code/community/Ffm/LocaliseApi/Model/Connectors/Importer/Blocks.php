@@ -27,7 +27,6 @@ class Ffm_LocaliseApi_Model_Connectors_Importer_Blocks extends Ffm_LocaliseApi_M
 
     public function process($storeId, $locale)
     {
-        if ($storeId!=2) return;
         $data = $this->_getTranslatePackage($locale);
         $blocks = [];
 

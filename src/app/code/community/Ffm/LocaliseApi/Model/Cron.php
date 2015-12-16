@@ -76,7 +76,7 @@ class Ffm_LocaliseApi_Model_Cron
 
         foreach ($importers as $importer) {
             $metaArray = Mage::getStoreConfig('general/localiseapi/imports/meta/' . $importer['code']);
-            if (is_string($metaArray)) { // should always be array (multiple stores)
+            if (!is_array($metaArray)) { // should always be array (multiple stores)
                 $metaArray = array($metaArray);
             }
 
@@ -99,7 +99,7 @@ class Ffm_LocaliseApi_Model_Cron
                     'active' => 0,
                     'due' => null,
                     'processed' => date('Y-m-d H:i:s', strtotime(now())),
-                    'store' => $storeId,
+                    'store' => $metaData['store'],
                     'result' => (is_bool($result)) ? 'OK' : substr($result, 0, 200),
                 ]), 'default', 0);
             }
