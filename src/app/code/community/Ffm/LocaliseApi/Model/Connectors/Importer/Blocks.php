@@ -32,6 +32,7 @@ class Ffm_LocaliseApi_Model_Connectors_Importer_Blocks extends Ffm_LocaliseApi_M
 
         // translate localise data into array
         foreach ($data as $identifier => $attributes) {
+            Mage::log($attributes);continue;
             foreach (reset($attributes) as $code => $value) {
                 $code = preg_replace('/([^a-z0-9])/i', '_', $code);
 
@@ -41,6 +42,7 @@ class Ffm_LocaliseApi_Model_Connectors_Importer_Blocks extends Ffm_LocaliseApi_M
 
             }
         }
+        return;
 
         // fetch the already existing blocks
         $collection = Mage::getModel('cms/block')->getCollection()

@@ -80,13 +80,14 @@ class Ffm_LocaliseApi_Model_Cron
                 $metaArray = array($metaArray);
             }
 
-            /* Always run pages importer for debugging */
-            if(file_exists(Mage::getBaseDir() . 'localise_' . $importer['code'] . '_trigger.flag')) {
-                $metaData['active'] = 1;
-            }
-
             foreach ($metaArray as $metaData) {
                 $metaData = unserialize($metaData);
+
+                /* Always run pages importer for debugging (products, pages, blocks, translatecsv) */
+                if(file_exists(Mage::getBaseDir() . '/localise_' . $importer['code'] . '_trigger.flag')) {
+                    $metaData['active'] = 1;
+                }
+
                 if ($metaData['active'] != 1) continue; // only process active entries
 
                 $locale = Mage::getStoreConfig('general/locale/code', $metaData['store']);
