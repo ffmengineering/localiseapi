@@ -24,7 +24,7 @@
 
 require_once Mage::getBaseDir('lib') . DS . 'Localise' . DS . 'Import.php';
 
-use Localise;
+use Localise\Import as Import;
 
 abstract class Ffm_LocaliseApi_Model_Connectors_Importer_Abstract
 {
@@ -32,7 +32,7 @@ abstract class Ffm_LocaliseApi_Model_Connectors_Importer_Abstract
     {
         $apiKey = Mage::helper('ffm_localiseapi')->getApiKey($this->_assetName);
 
-        $import = new Localise\Import;
+        $import = new Import;
 
         try {
             $result = $import->get($locale, $apiKey, [
