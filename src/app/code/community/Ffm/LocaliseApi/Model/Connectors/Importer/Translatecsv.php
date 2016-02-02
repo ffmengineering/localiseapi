@@ -27,6 +27,8 @@ class Ffm_LocaliseApi_Model_Connectors_Importer_Translatecsv extends Ffm_Localis
 
     public function process($storeId, $locale)
     {
+        $originLocale = 'en_US';
+        $originalData = $this->_getTranslatePackage($originLocale);
         $data = $this->_getTranslatePackage($locale);
 
         if (!count($data)) return true; // no results
@@ -46,8 +48,9 @@ class Ffm_LocaliseApi_Model_Connectors_Importer_Translatecsv extends Ffm_Localis
         $ioAdapter->streamOpen($localeCsv, 'w+', 0644);
 
         foreach ($data as $key => $translation) {
+            $translatable = $originalData[$key];
             $ioAdapter-> streamWriteCsv([
-                $key, $translation
+                $translatable, $translation
             ], ',', '"');
         }
 
