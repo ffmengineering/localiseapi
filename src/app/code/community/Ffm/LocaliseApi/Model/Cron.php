@@ -88,6 +88,10 @@ class Ffm_LocaliseApi_Model_Cron
                     $metaData['active'] = 1;
                 }
 
+                if(!isset($metaData['store'])) {
+                    $metaData['store'] = 0;
+                }
+
                 if ($metaData['active'] != 1) continue; // only process active entries
 
                 $locale = Mage::getStoreConfig('general/locale/code', $metaData['store']);
