@@ -19,7 +19,7 @@
 <config>
     <modules>
         <Ffm_LocaliseApi>
-            <version>1.0.11</version>
+            <version>1.0.12</version>
         </Ffm_LocaliseApi>
     </modules>
     <global>
