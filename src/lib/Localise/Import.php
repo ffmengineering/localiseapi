@@ -45,7 +45,7 @@ class Import
         if ($ch = curl_init()) {
             curl_setopt($ch,CURLOPT_URL, $apiUrl);
             curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch,CURLOPT_HEADER, true);
+            curl_setopt($ch,CURLOPT_HEADER, false);
             //curl_setopt($ch,CURLOPT_USERPWD, "$apiKey:");
 
             $result = curl_exec($ch);
